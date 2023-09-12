@@ -10,6 +10,8 @@
     $plakalar = array("41","53","34");
     $sehirler = array("kocaeli","rize","istanbul");
 
+    echo count($plakalar)."<br>"; // dizinin eleman sayısını gösterir
+
     echo "$plakalar[0] : $sehirler[0]"."<br>";
     echo "$plakalar[1] : $sehirler[1]"."<br>";
     echo "$plakalar[2] : $sehirler[2]"."<br>";
