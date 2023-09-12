@@ -10,7 +10,7 @@ echo "Döngü bitti.";
 */
 
 /*
-//Mod fonksiyonu kullanıp tek sayıları yazdırabiliriz.
+//if blogu içerisinde Mod fonksiyonu kullanıp tek sayıları yazdırabiliriz.
 for ($i = 1; $i <= 100; $i += 1) {
     if ($i % 2 == 1) {
         echo $i . "<br>";
