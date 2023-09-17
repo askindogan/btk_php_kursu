@@ -1,8 +1,10 @@
 <?php 
 
-$sayiDizisi=array(10,20,30);
+//$sayiDizisi=array(10,20,30); 1. yöntem
+//$sayiDizisi=array(10,20,30); 2. yöntem ile de değişken sayıda anlamında (...) ile direk sonuç kısmında
+//                             tanımlama yapıyoruz. 
 
-function toplam($sayiDizisi){
+function toplam(...$sayiDizisi){
 
     $toplam=0;
     foreach($sayiDizisi as $sayi) {
@@ -11,5 +13,7 @@ function toplam($sayiDizisi){
     return $toplam;
 }
 
-echo toplam($sayiDizisi);
+echo toplam(10,20,40);
+echo "<br>";
+echo toplam(10,20,40,35);
 ?>
