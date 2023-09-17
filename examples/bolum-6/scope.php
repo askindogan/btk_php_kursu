@@ -36,9 +36,11 @@ echo "<br>";
 
 function test4(){
     //local içinde global scope değiştirme/güncelleme
-    $GLOBALS["x"]=10;
+    $GLOBALS["x"]=40;
 }
 
-echo test4();
+test4();
+echo "<br>";
+
 echo $x;
 
