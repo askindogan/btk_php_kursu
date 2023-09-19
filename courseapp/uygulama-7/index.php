@@ -39,7 +39,7 @@ $kurslar = array(
     "4" => array(
         "baslik" => "Django Kursu",
         "altBaslik" => "Sıfırdan ileri seviye Django programlama",
-        "resim" => "1.jpg",
+        "resim" => "4.png",
         "yayinTarihi" => "01.01.2023",
         "yorumSayisi" => 0,
         "begeniSayisi" => 5,
@@ -63,7 +63,12 @@ function kursEkle(&$kurslar, string $baslik, string $altBaslik, string $resim, s
     $kurslar=array_merge($kurslar,$yeni_kurs);
 }
 
-kursEkle($kurslar,"React Kursu(yeni)","Sıfırdan ileri seviye React programlama","4.png","18.09.2023");
+kursEkle($kurslar,"React Kursu(yeni)","Sıfırdan ileri seviye React programlama","5.png","18.09.2023");
+kursEkle($kurslar,"JavaScript Kursu(yeni)","Sıfırdan ileri seviye JavaScript programlama","6.png","18.09.2023");
+
+function urlDuzenle($baslik){
+    return str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($baslik));
+}
 
 $kurs1_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($kurslar["1"]["baslik"]));
 $kurs2_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($kurslar["2"]["baslik"]));
