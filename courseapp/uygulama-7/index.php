@@ -60,20 +60,26 @@ function kursEkle(&$kurslar, string $baslik, string $altBaslik, string $resim, s
         "onay" => $onay
     );
 
-    $kurslar=array_merge($kurslar,$yeni_kurs);
+    $kurslar = array_merge($kurslar, $yeni_kurs);
 }
 
-kursEkle($kurslar,"React Kursu(yeni)","Sıfırdan ileri seviye React programlama","5.png","18.09.2023");
-kursEkle($kurslar,"JavaScript Kursu(yeni)","Sıfırdan ileri seviye JavaScript programlama","6.png","18.09.2023");
+kursEkle($kurslar, "React Kursu(yeni)", "Sıfırdan ileri seviye React programlama", "5.png", "18.09.2023");
+kursEkle($kurslar, "JavaScript Kursu(yeni)", "Sıfırdan ileri seviye JavaScript programlama kursu için bazı notları içeren kurstur", "6.png", "18.09.2023");
 
-function urlDuzenle($baslik){
-    return str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($baslik));
+//Kurs başlığını url ye çeviren karakter düzenleyen fonksiyon
+function urlDuzenle($baslik)
+{
+    return str_replace([" ", "ç", "@", ".", "(", ")"], ["-", "c", "", "-", "", ""], strtolower($baslik));
 }
-
-$kurs1_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($kurslar["1"]["baslik"]));
-$kurs2_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($kurslar["2"]["baslik"]));
-$kurs3_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($kurslar["3"]["baslik"]));
-$kurs4_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower($kurslar["4"]["baslik"]));
+//Alt Başlık 50 karakterden büyükse sonuna ... ekleyen fonksiyon
+function kisaAciklama($altBaslik)
+{
+    if (strlen($altBaslik) > 50) {
+        return substr($altBaslik, 0, 50) . "...";
+    } else {
+        return $altBaslik;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -120,16 +126,12 @@ $kurs4_url = str_replace([" ", "ç", "@", "."], ["-", "c", "", "-"], strtolower(
                                 <div class="col-8">
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <a href="<?php echo $kurs2_url; ?>">
+                                            <a href="<?php echo urlDuzenle($kurs["baslik"]); ?>">
                                                 <?php echo $kurs["baslik"]; ?>
                                             </a>
                                         </h5>
                                         <p class="card-text">
-                                            <?php if (strlen($kurs["altBaslik"]) > 50) : ?>
-                                                <?php echo substr($kurs["altBaslik"], 0, 50) . "..." ?>
-                                            <?php else : ?>
-                                                <?php echo $kurs["altBaslik"]; ?>
-                                            <?php endif ?>
+                                            <?php echo kisaAciklama($kurs["altBaslik"]) ?>
                                         </p>
                                         <p>
                                             <?php if ($kurs["begeniSayisi"] > 0) : ?>
