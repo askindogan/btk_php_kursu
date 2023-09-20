@@ -8,11 +8,4 @@
             <button>Gönder</button>
         </form>
     </main>
-    <footer>
-        <p>
-            Tüm hakları saklıdır.
-        </p>
-    </footer>
-</body>
-
-</html>
+    <?php include 'partials/_footer.php' ?>
