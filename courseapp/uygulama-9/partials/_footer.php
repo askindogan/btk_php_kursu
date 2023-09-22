@@ -1,6 +1,6 @@
 <footer>
     <div class="container">
-            <p>Tüm hakları saklıdır.</p>
+            <p>@2023 Tüm hakları saklıdır.</p>
     </div>
 </footer>
 </body>
