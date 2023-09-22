@@ -1,4 +1,4 @@
 <nav>
-    <a href="#">Anasayfa</a>
-    <a href="#">Ürünler</a>
+    <a href="index.php">Anasayfa</a>
+    <a href="contact.php">İletişim</a>
 </nav>
