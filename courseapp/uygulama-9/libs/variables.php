@@ -17,7 +17,7 @@ $kurslar = array(
         "yayinTarihi" => "01.01.2023",
         "yorumSayisi" => 0,
         "begeniSayisi" => 10,
-        "onay" => false
+        "onay" => true
     ),
     "2" => array(
         "baslik" => "Python Kursu",
