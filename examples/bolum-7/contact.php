@@ -1,3 +1,5 @@
+<?php $title='İletişim'?>
+
 <?php include 'partials/_header.php' ?>
 
     <main>
