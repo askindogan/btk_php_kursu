@@ -1,3 +1,4 @@
+<?php $title='Anasayfa'?>
 <?php include 'partials/_header.php' ?>
 <main>
     <h1>En çok satan ürünler</h1>

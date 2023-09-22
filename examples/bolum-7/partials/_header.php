@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php if(isset($title)) echo $title.' | ';?>phpkursu.com</title>
 </head>
 <body>
     <header>
