@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    //Formlar default olarak method olarak GET gelir
-    //Form taglarında bir action belirlemezsek default olarak aynı sayfada çalışır.
+    <ul>
+        <li>Formlar default olarak method olarak GET gelir</li>
+        <li>Form taglarında bir action belirlemezsek default olarak aynı sayfada çalışır.</li>
+    </ul>
     <form action="yazdir.php" method="GET">
         <input type="text" name="q">
         <input type="text" name="category">
