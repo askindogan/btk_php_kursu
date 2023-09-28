@@ -9,9 +9,9 @@ require "libs/functions.php";
 
         <div class="row">
             <div class="col-12">
+
             </div>
         </div>
 
     </div>
 
-    <?php include "partials/_footer.php";?>
