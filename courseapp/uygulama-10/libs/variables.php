@@ -9,6 +9,21 @@ $kategoriler = array(
     array("kategori_adi" => "Ofis Uygulamaları", "aktif" => false),
 );
 
+$sehirler=array(
+    "01" => "Adana",
+    "55" => "Samsun",
+    "34" => "İstanbul",
+    "32" => "İzmir",
+    "36" => "Kars",
+    "16" => "Bursa",
+);
+
+$hobiler=array(
+    "1" => "Sinema",
+    "2" => "Müzik",
+    "3" => "Yüzme",
+);
+
 $kurslar = array(
     "1" => array(
         "baslik" => "Php Kursu",
