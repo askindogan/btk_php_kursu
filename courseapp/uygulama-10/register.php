@@ -7,8 +7,9 @@ require "libs/functions.php";
 
 <?php
 
-$usernameErr = $passwordErr = $emailErr = $repasswordErr = $cityErr = $hobilerErr = "";
-$username = $email = $password = $repassword = $city = $hobiler = "";
+$usernameErr = $passwordErr = $emailErr = $repasswordErr = $cityErr = $hobbiesErr = "";
+$username = $email = $password = $repassword = $city ="";
+$hobbies=[];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -42,13 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $city = $_POST['city'];
     }
 
-    if (!isset($_POST['hobiler'])) {
-        $hobilerErr = "hobiler alanı gerekli.";
+    if (!isset($_POST['hobbies'])) {
+        $hobbiesErr = "hobiler alanı gerekli.";
     } else {
-        $hobiler = $_POST['hobiler'];
+        $hobbies= $_POST['hobbies'];
     }
 }
-
 ?>
 
 <div class="container my-3">
@@ -92,14 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="mb-3">
                     <label for="hobiler">Hobiler</label>
 
-                    <?php foreach ($hobiler as $key => $hobi) : ?>
+                    <?php foreach ($hobiler as $key => $hobi): ?>
                         <div class="form-check">
-                            <input type="checkbox" name="hobiler[]" id="hobiler_<?php echo $key; ?>" value="<?php echo $hobi; ?>">
-                            <label for="hobiler_<?php echo $key; ?>" class="form-check-label"><?php echo $hobi; ?></label>
+                            <input  type="checkbox" 
+                                    name="hobbies[]" 
+                                    id="hobbies<?php echo $key;?>" 
+                                    value="<?php echo $hobi; ?>"
+                                    <?php  if(in_array($hobi, $hobbies)) echo 'checked'; ?>
+                                    >
+                            <label for="hobbies_<?php echo $key; ?>" class="form-check-label"><?php echo $hobi; ?></label>
                         </div>
                     <?php endforeach; ?>
 
-                    <div class="text-danger"><?php echo $hobilerErr ?></div>
+                    <div class="text-danger"><?php echo $hobbiesErr ?></div>
                 </div>
                 <button type="submit" class="btn btn-primary">Kayıt Ol</button>
             </form>
