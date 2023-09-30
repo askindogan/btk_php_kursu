@@ -2,25 +2,51 @@
 
 if (isset($_POST['btnFileUpload'])) {
 
+    //Dosya seçilmiş mi?
+    //Dosya boyutu kontrolü.
+    //Dosya uzantısı (jpg,png) kontrolü.
+    //Dosya ismi kontrolü - random.
+
     $uploadOk = true;
     $dest_path = "./uploadedFiles/";
-    $filename = $_FILES['fileToUpload']['name'];
+    $fileName = $_FILES['fileToUpload']['name'];
     $fileSize = $_FILES['fileToUpload']['size'];
+    $fileExtentions = array('jpg', 'jpeg', 'png');
 
-    if (empty($filename)) {
+    //Dosya seçilmiş mi?
+    if (empty($fileName)) {
         $uploadOk = false;
         echo "Lütfen bir dosya seçiniz.";
         echo "<br>";
     }
 
+    //Dosya boyutu kontrolü
     if ($fileSize > 300000) {
         $uploadOk = false;
         echo "Dosya boyutu çok fazla.";
         echo "<br>";
     }
 
+    //Dosya uzantısı kontrolü
+
+    $fileExplode = explode(".", $fileName);
+    // echo"<pre>";
+    // print_r($fileExplode);
+    // echo"</pre>";
+    $fileExplodedName = $fileExplode[0];
+    $fileExplodedExtension = $fileExplode[1];
+
+    echo $fileExplodedName ;
+    echo "<br>" ;
+    echo $fileExplodedExtension ;
+    echo "<br>" ;
+
+
+
+
+    //Dosya taşıma işlemi
     $fileSourcePath = $_FILES['fileToUpload']['tmp_name'];
-    $fileDestPath = $dest_path . $filename;
+    $fileDestPath = $dest_path . $fileName;
 
     if (!$uploadOk) {
         echo "Dosya yüklenemedi.";
