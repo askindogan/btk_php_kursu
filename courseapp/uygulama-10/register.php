@@ -16,25 +16,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['username'])) {
         $usernameErr = "username alanı gerekli.";
     } else {
-        $username = $_POST['username'];
+        $username = safe_html($_POST['username']);
     }
 
     if (empty($_POST['email'])) {
         $emailErr = "email alanı gerekli.";
     } else {
-        $email = $_POST['email'];
+        $email = safe_html($_POST['email']);
     }
 
     if (empty($_POST['password'])) {
         $passwordErr = "password alanı gerekli.";
     } else {
-        $password = $_POST['password'];
+        $password = safe_html($_POST['password']);
     }
 
     if (empty($_POST['repassword'])) {
         $repasswordErr = "repassword alanı gerekli.";
     } else {
-        $repassword = $_POST['repassword'];
+        $repassword = safe_html($_POST['repassword']);
     }
 
     if ($_POST['city'] == -1) {
