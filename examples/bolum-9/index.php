@@ -20,33 +20,34 @@ if (isset($_POST['btnFileUpload'])) {
         echo "<br>";
     }
 
-    //Dosya boyutu kontrolü
-    if ($fileSize > 300000) {
+    //Dosya boyutu kontrolü -5 MB DAN KÜÇÜK  -
+    if ($fileSize > 5000000) {
         $uploadOk = false;
         echo "Dosya boyutu çok fazla.";
         echo "<br>";
     }
 
     //Dosya uzantısı kontrolü
-
     $fileExplode = explode(".", $fileName);
-    // echo"<pre>";
-    // print_r($fileExplode);
-    // echo"</pre>";
+
     $fileExplodedName = $fileExplode[0];
     $fileExplodedExtension = $fileExplode[1];
 
-    echo $fileExplodedName ;
-    echo "<br>" ;
-    echo $fileExplodedExtension ;
-    echo "<br>" ;
+    if (!in_array($fileExplodedExtension, $fileExtentions)) {
+        $uploadOk = false;
+        echo "Dosya uzantısı kabul edilemiyor.";
+        echo "<br>";
+        echo "Kabul edilen uzantılar:" . implode(", ", $fileExtentions);
+        echo "<br>";
+    }
 
-
+    // Yeni dosya adı random belirleme
+    $fileNameNewRandom = md5(time()) . "." . $fileExplodedExtension;
 
 
     //Dosya taşıma işlemi
     $fileSourcePath = $_FILES['fileToUpload']['tmp_name'];
-    $fileDestPath = $dest_path . $fileName;
+    $fileDestPath = $dest_path . $fileNameNewRandom;
 
     if (!$uploadOk) {
         echo "Dosya yüklenemedi.";
@@ -74,6 +75,7 @@ if (isset($_POST['btnFileUpload'])) {
 
     <!-- Bir form ile dosya gönderme işlemi için 
     form nesnesi içine mutlaka enctype="multipart/form-data" eklenmeli  -->
+    <h1>Tekli Dosya Upload işlemi</h1>
     <form method="post" enctype="multipart/form-data">
         <input type="text" name="username">
         <input type="file" name="fileToUpload">
