@@ -12,6 +12,7 @@
     <!-- Bir form ile dosya gönderme işlemi için 
     form nesnesi içine mutlaka enctype="multipart/form-data" eklenmeli  -->
     <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="username">
         <input type="file" name="fileToUpload" >
         <button type="submit" name="btnFileUpload">Yükle</button>
     </form>
