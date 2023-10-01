@@ -1,24 +1,36 @@
 <?php
 
-if (isset($_POST['btnFileUpload'] )) {
+//Buton POST olduğunda işlem çalışacak kodlar.
+if (isset($_POST['btnFileUpload'])) {
 
-    $fileCount=count($_FILES['fileToUpload']['name']);
-    for ($i=0; $i < $fileCount; $i++) { 
-        $fileTmpPath=$_FILES['fileToUpload']['tmp_name'][$i];
-        $fileName=$_FILES['fileToUpload']['name'][$i];
+    $fileCount = count($_FILES['fileToUpload']['name']);
+    $maxFileSize = (1024 * 1024) * 1;
+    $fileTypes = array("multiUploadedFiles/png", "multiUploadedFiles/jpg", "multiUploadedFiles/jpeg");
+    $uploadOk = true;
 
-        $destName="multiUploadedFiles/". $fileName;
-        if (move_uploaded_file($fileTmpPath,$destName)) {
-           echo $fileName." dosyası yüklendi"."<br>";
-        }
-        else {
-            echo "dosya yükleme hatası"."<br>";
-        }
+    if ($fileCount > 2) {
+        $uploadOk = false;
+        echo "Max. 2 dosya yükleyebilirsiniz.";
     }
+    
+    //Eğer upload true ise yani yukarıdaki şartı geçtiyse
+    if ($uploadOk) {
 
+      for ($i = 0; $i < $fileCount; $i++) {
+
+        $fileTmpPath = $_FILES['fileToUpload']['tmp_name'][$i];
+        $fileName = $_FILES['fileToUpload']['name'][$i];
+
+        $destName = "multiUploadedFiles/" . $fileName;
+        if (move_uploaded_file($fileTmpPath, $destName)) {
+            echo $fileName . " dosyası yüklendi" . "<br>";
+        } else {
+            echo "dosya yükleme hatası" . "<br>";
+        }
+    }  
+    }
+    
 }
-
-
 
 ?>
 <!DOCTYPE html>
