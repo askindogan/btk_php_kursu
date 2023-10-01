@@ -12,24 +12,42 @@ if (isset($_POST['btnFileUpload'])) {
         $uploadOk = false;
         echo "Max. 2 dosya yükleyebilirsiniz.";
     }
-    
+
     //Eğer upload true ise yani yukarıdaki şartı geçtiyse
     if ($uploadOk) {
 
-      for ($i = 0; $i < $fileCount; $i++) {
+        for ($i = 0; $i < $fileCount; $i++) {
 
-        $fileTmpPath = $_FILES['fileToUpload']['tmp_name'][$i];
-        $fileName = $_FILES['fileToUpload']['name'][$i];
+            $fileTmpPath = $_FILES['fileToUpload']['tmp_name'][$i];
+            $fileName = $_FILES['fileToUpload']['name'][$i];
+            $fileSize = $_FILES['fileToUpload']['size'][$i];
+            $fileType = $_FILES['fileToUpload']['type'][$i];
 
-        $destName = "multiUploadedFiles/" . $fileName;
-        if (move_uploaded_file($fileTmpPath, $destName)) {
-            echo $fileName . " dosyası yüklendi" . "<br>";
-        } else {
-            echo "dosya yükleme hatası" . "<br>";
+            if (in_array($fileType, $fileTypes)) {
+
+                if ($fileSize > $maxFileSize) {
+                    echo "Max. dosya boyutu 1 MB olmalıdır.";
+                } else {
+
+                    $fileNameExplode=explode(".",$fileName);
+                    $fileNameFirst=$fileNameExplode[0];
+                    $fileNameExtension=$fileNameExplode[1];
+
+                    $newFileName=$fileName."-".rand(0,99999).".".$fileNameExtension;
+                    $destName = "multiUploadedFiles/" . $newFileName;
+
+                    if (move_uploaded_file($fileTmpPath, $destName)) {
+                        echo $newFileName . " dosyası yüklendi" . "<br>";
+                    } else {
+                        echo  $newFileName . "dosya yükleme hatası" . "<br>";
+                    }
+                }
+            } else {
+                echo "dosya uzantısı kabul edilmiyor" . "<br>";
+                echo "Kabul edilen dosya uzantısı: " . implode(", ", $fileTypes) . "<br>";
+            }
         }
-    }  
     }
-    
 }
 
 ?>
