@@ -1,6 +1,8 @@
 <?php
 
 const title = "Popüler Kurslar";
+const username = "askindogan";
+const password = "123456";
 
 $kategoriler = array(
     array("kategori_adi" => "Programlama", "aktif" => true),
