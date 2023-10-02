@@ -5,9 +5,9 @@ require "libs/functions.php";
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username == username && $password == password) {
-        setcookie('username', $username, time() + (60 * 60 * 24));
-        setcookie('auth', true, time() + (60 * 60 * 24));
+    if ($username == db_user['username'] && $password == db_user['password'] ) {
+        setcookie("auth[username]", $username, time() + (60 * 60 * 24));
+        setcookie("auth[name]", db_user['name'], time() + (60 * 60 * 24));
         header("Location:index.php");
     } else {
         echo "<div class='alert alert-danger mb-0 text-center'>Yanlış bilgiler.</div>";
