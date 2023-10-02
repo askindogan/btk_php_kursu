@@ -3,9 +3,14 @@
 //Buton POST olduğunda işlem çalışacak kodlar.
 if (isset($_POST['btnFileUpload'])) {
 
+    echo "<pre>";
+    print_r($_FILES);
+    echo "</pre>";
+
+exit;
     $fileCount = count($_FILES['fileToUpload']['name']);
     $maxFileSize = (1024 * 1024) * 1;
-    $fileTypes = array("multiUploadedFiles/png", "multiUploadedFiles/jpg", "multiUploadedFiles/jpeg");
+    $fileTypes = array("image/jpeg", "image/jpg", "image/png");
     $uploadOk = true;
 
     if ($fileCount > 2) {
@@ -29,11 +34,11 @@ if (isset($_POST['btnFileUpload'])) {
                     echo "Max. dosya boyutu 1 MB olmalıdır.";
                 } else {
 
-                    $fileNameExplode=explode(".",$fileName);
-                    $fileNameFirst=$fileNameExplode[0];
-                    $fileNameExtension=$fileNameExplode[1];
+                    $fileNameExplode = explode(".", $fileName);
+                    $fileNameFirst = $fileNameExplode[0];
+                    $fileNameExtension = $fileNameExplode[1];
 
-                    $newFileName=$fileName."-".rand(0,99999).".".$fileNameExtension;
+                    $newFileName = $fileName . "-" . rand(0, 99999) . "." . $fileNameExtension;
                     $destName = "multiUploadedFiles/" . $newFileName;
 
                     if (move_uploaded_file($fileTmpPath, $destName)) {
