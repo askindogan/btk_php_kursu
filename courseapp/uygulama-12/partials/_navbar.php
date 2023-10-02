@@ -22,15 +22,14 @@ if (!empty($_GET['q'])) {
         </ul>
         <!--  -->
         <ul class="navbar-nav me-2">
-            <?php if (isset($_COOKIE["username"])): ?>
+            <?php if (isset($_COOKIE["username"])) : ?>
                 <li class="nav-item">
-                <a href="login.php" class="nav-link">Hoşgeldin <?php $_COOKIE["username"]; ?></a>
-                    
+                    <a href="login.php" class="nav-link">Hoşgeldin <?php echo $_COOKIE["username"]; ?></a>
                 </li>
                 <li class="nav-item">
                     <a href="cikis.php" class="nav-link">Çıkış</a>
                 </li>
-            <?php else: ?>
+            <?php else : ?>
                 <li class="nav-item">
                     <a href="login.php" class="nav-link">Login</a>
                 </li>
