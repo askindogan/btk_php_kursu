@@ -44,15 +44,11 @@ if (isset($_POST['btnFileUpload'])) {
                 }
             } else {
                 echo "dosya uzantısı kabul edilmiyor" . "<br>";
-
-                  
-                   echo "Kabul edilen dosya uzantısı: " .   implode(",", $fileTypes) . "<br>";
-                }
-
-                
+               echo "Kabul edilen dosya uzantısı: " .   implode(",", $fileTypes) . "<br>";
             }
         }
     }
+}
 
 ?>
 <!DOCTYPE html>
