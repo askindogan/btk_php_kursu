@@ -3,11 +3,6 @@
 //Buton POST olduğunda işlem çalışacak kodlar.
 if (isset($_POST['btnFileUpload'])) {
 
-    echo "<pre>";
-    print_r($_FILES);
-    echo "</pre>";
-
-exit;
     $fileCount = count($_FILES['fileToUpload']['name']);
     $maxFileSize = (1024 * 1024) * 1;
     $fileTypes = array("image/jpeg", "image/jpg", "image/png");
@@ -42,18 +37,22 @@ exit;
                     $destName = "multiUploadedFiles/" . $newFileName;
 
                     if (move_uploaded_file($fileTmpPath, $destName)) {
-                        echo $newFileName . " dosyası yüklendi" . "<br>";
+                        echo $newFileName . " isimli dosya yüklendi." . "<br>";
                     } else {
                         echo  $newFileName . "dosya yükleme hatası" . "<br>";
                     }
                 }
             } else {
                 echo "dosya uzantısı kabul edilmiyor" . "<br>";
-                echo "Kabul edilen dosya uzantısı: " . implode(", ", $fileTypes) . "<br>";
+
+                  
+                   echo "Kabul edilen dosya uzantısı: " .   implode(",", $fileTypes) . "<br>";
+                }
+
+                
             }
         }
     }
-}
 
 ?>
 <!DOCTYPE html>
