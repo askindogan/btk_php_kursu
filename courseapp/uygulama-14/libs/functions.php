@@ -1,5 +1,13 @@
 <?php
 
+function getDb(){
+    $myfile=fopen("db.json","r");
+    $size=filesize("db.json");
+    $data=json_decode(fread($myfile,$size),true);
+    fclose($myfile);
+    return $data;
+}
+
 function kursEkle(&$kurslar, string $baslik, string $altBaslik, string $resim, string $yayinTarihi, int $yorumSayisi = 0, int $begeniSayisi = 0, bool $onay = true)
 {
     $yeni_kurs[count($kurslar) + 1] = array(
