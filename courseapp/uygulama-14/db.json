@@ -1,7 +1,66 @@
 {
-    "kategoriler":[
-        {"id":"1","kategori_adi":"Programlama","aktif": false},
-        {"id":"2","kategori_adi":"Web Geliştirme","aktif": true},
-        {"id":"3","kategori_adi":"Veri Analizi","aktif": false}
+    "kategoriler": [
+        {
+            "id": "1",
+            "kategori_adi": "Programlama",
+            "aktif": false
+        },
+        {
+            "id": "2",
+            "kategori_adi": "Web Geli\u015ftirme",
+            "aktif": true
+        },
+        {
+            "id": "3",
+            "kategori_adi": "Veri Analizi",
+            "aktif": false
+        }
+    ],
+    "kurslar": [
+        {
+            "baslik": "Php Kursu",
+            "altBaslik": "S\u0131f\u0131rdan ileri seviye Php ile web geli\u015ftirme",
+            "resim": "1.jpg",
+            "yayinTarihi": "01.01.2023",
+            "yorumSayisi": 10,
+            "begeniSayisi": 10,
+            "onay": true
+        },
+        {
+            "baslik": "Python Kursu",
+            "altBaslik": "S\u0131f\u0131rdan ileri seviye Python programlama",
+            "resim": "2.jpg",
+            "yayinTarihi": "01.01.2023",
+            "yorumSayisi": 10,
+            "begeniSayisi": 0,
+            "onay": true
+        },
+        {
+            "baslik": "Node.js Kursu",
+            "altBaslik": "S\u0131f\u0131rdan ileri seviye Node.js programlama",
+            "resim": "3.jpg",
+            "yayinTarihi": "01.01.2023",
+            "yorumSayisi": 10,
+            "begeniSayisi": 20,
+            "onay": false
+        },
+        {
+            "baslik": "Mobil Uygulama",
+            "altBaslik": "S\u0131f\u0131rdan ileri seviye  geli\u015ftirme e\u011fitimleri",
+            "resim": "3.jpg",
+            "yayinTarihi": "",
+            "yorumSayisi": 0,
+            "begeniSayisi": 0,
+            "onay": true
+        },
+        {
+            "baslik": "Mobil Uygulama ",
+            "altBaslik": "S\u0131f\u0131rdan ileri seviye Mobil Uygulama geli\u015ftirme e\u011fitimleri",
+            "resim": "1.jpg",
+            "yayinTarihi": "30.09.2023",
+            "yorumSayisi": 0,
+            "begeniSayisi": 0,
+            "onay": true
+        }
     ]
 }

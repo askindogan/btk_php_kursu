@@ -2,6 +2,19 @@
 require "libs/variables.php";
 require "libs/functions.php";
 ?>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    $title=$_POST['title'];
+    $subtitle=$_POST['subtitle'];
+    $image=$_POST['image'];
+    $dateAdded=$_POST['dateAdded'];
+    
+    kursEkle($title,$subtitle,$image,$dateAdded);
+    header("Location: index.php");
+}
+?>
+
 <?php include "partials/_header.php"; ?>
 <?php include "partials/_navbar.php"; ?>
 
@@ -9,7 +22,7 @@ require "libs/functions.php";
 
     <div class="row">
         <div class="col-12">
-            <form action="index.php" method="post">
+            <form method="post">
                 <div class="mb-3">
                     <label for="title">Başlık</label>
                     <input type="text" name="title" id="title" class="form-control">

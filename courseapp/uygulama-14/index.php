@@ -12,16 +12,7 @@ if (isset($_SESSION["message"])) {
 <?php include "partials/_header.php";?>
 <?php include "partials/_navbar.php";?>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"]=="POST") {
-    $title=$_POST['title'];
-    $subtitle=$_POST['subtitle'];
-    $image=$_POST['image'];
-    $dateAdded=$_POST['dateAdded'];
-    
-    kursEkle($kurslar,$title,$subtitle,$image,$dateAdded);
-}
-?>
+
 
     <div class="container my-3">
 
