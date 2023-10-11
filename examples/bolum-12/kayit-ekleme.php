@@ -15,7 +15,7 @@ $query = "INSERT INTO kurslar (baslik, altBaslik, resim,yayinTarihi,yorumSayisi,
 $sonuc=mysqli_query($baglanti,$query);
 $inserted_id=mysqli_insert_id($baglanti);
 //Çoklu veri ekleme için aşağıdaki yöntem kullanılacak. Yukarıdaki stringleride .= operatörü ile birleştirip metin sonuna ")"  işererinden önce ";" eklenmeli
-$sonuc=mysqli_multi_query($baglanti,$query);
+//$sonuc=mysqli_multi_query($baglanti,$query);
 
 
 if ($sonuc) {
